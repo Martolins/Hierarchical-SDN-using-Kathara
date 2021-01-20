@@ -1,0 +1,19 @@
+ifconfig eth0 192.168.10.2/24 up
+
+service openvswitch-switch start
+#/usr/sbin/ovsdb-server --detach --pidfile --log-file --remote=punix:/var/run/openvswitch/db.sock --remote=ptcp:6633
+#/usr/sbin/ovs-vswitchd --detach --pidfile --log-file
+
+ovs-vsctl add-br br31
+
+ovs-vsctl add-port br31 eth1
+ovs-vsctl add-port br31 eth2
+ovs-vsctl add-port br31 eth3
+ovs-vsctl add-port br31 eth4
+
+
+
+ifconfig br31 up
+
+ovs-vsctl set bridge br31 protocols=[OpenFlow13]
+ovs-vsctl set-controller br31 tcp:192.168.10.1:6633
