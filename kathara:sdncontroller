@@ -1,0 +1,7 @@
+FROM kathara/sdn
+
+ARG DEBIAN_FRONTEND="noninteractive"
+RUN apt update
+
+RUN python3 -m pip install --no-cache-dir networkx
+RUN python3 -m pip install --no-cache-dir requests
