@@ -367,7 +367,7 @@ class RESTController(ControllerBase):
         controller_data = self.controller_app
         if controller_data.is_complete == False:
             controller_data.get_clique()
-        clique = dict(nx.all_pairs_shortest_path_length(controller_data.net))
+        clique = dict(nx.all_pairs_dijkstra_path_length(controller_data.net))
         for key in clique:
             if key in controller_data.edge_switches:
                 for node in clique[key]:
