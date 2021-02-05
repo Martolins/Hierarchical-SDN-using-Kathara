@@ -163,8 +163,8 @@ class L2Switch(app_manager.RyuApp):
             print("C2 CLIQUE", cliqueC2.edges(data=True))
             self.C1nodes = cliqueC1.nodes()
             self.C2nodes = cliqueC2.nodes()
-            list_edges_c1 = cliqueC1.edges()
-            list_edges_c2 = cliqueC2.edges()
+            list_edges_c1 = cliqueC1.edges(data=True)
+            list_edges_c2 = cliqueC2.edges(data=True)
             self.net.add_edges_from(list_edges_c1)
             self.net.add_edges_from(list_edges_c2)
         except requests.exceptions.ConnectionError:
