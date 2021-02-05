@@ -250,7 +250,7 @@ class RESTController(ControllerBase):
     @route('clique',url, methods=['GET'])
     def get_clique(self, req, **kwargs):
         controller_data = self.controller_app
-        clique = dict(nx.all_pairs_shortest_path_length(controller_data.net))
+        clique = dict(nx.all_pairs_dijkstra_path_length(controller_data.net))
         for key in clique:
             if key in controller_data.edge_switches:
                 for node in clique[key]:
