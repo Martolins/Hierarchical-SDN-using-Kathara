@@ -272,8 +272,6 @@ class RESTController(ControllerBase):
         ingressPort = request_json["ingressPort"]
         src = request_json["src"]
         dst = request_json["dst"]
-        print("INGRESS",ingressSwitch)
-        print("EGRESS", egressSwitch)
         path = nx.shortest_path(controller_data.net, source=str(egressSwitch), target=str(ingressSwitch),
                                 method="dijkstra")
         print("PATH",path)
