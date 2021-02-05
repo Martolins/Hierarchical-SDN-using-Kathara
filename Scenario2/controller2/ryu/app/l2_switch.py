@@ -292,8 +292,8 @@ class L2Switch(app_manager.RyuApp):
             cliqueC4 = json_graph.node_link_graph(c4_response.json())
             self.C3nodes = cliqueC3.nodes()
             self.C4nodes = cliqueC4.nodes()
-            list_edges_c3 = cliqueC3.edges()
-            list_edges_c4 = cliqueC4.edges()
+            list_edges_c3 = cliqueC3.edges(data=True)
+            list_edges_c4 = cliqueC4.edges(data=True)
             self.net.add_edges_from(list_edges_c3)
             self.net.add_edges_from(list_edges_c4)
             self.is_complete = True
@@ -370,7 +370,7 @@ class RESTController(ControllerBase):
         controller_data = self.controller_app
         if controller_data.is_complete == False:
             controller_data.get_clique()
-        clique = dict(nx.all_pairs_shortest_path_length(controller_data.net))
+        clique = dict(nx.all_pairs_dijkstra_path_length(controller_data.net))
         #print(clique)
         for key in clique:
             if key in controller_data.edge_switches:
