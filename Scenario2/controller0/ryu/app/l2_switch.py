@@ -160,7 +160,6 @@ class L2Switch(app_manager.RyuApp):
             c2_response = requests.get('http://10.0.0.1:8080/clique')
             cliqueC1 = json_graph.node_link_graph(c1_response.json())
             cliqueC2 = json_graph.node_link_graph(c2_response.json())
-            print("C2 CLIQUE", cliqueC2.edges(data=True))
             self.C1nodes = cliqueC1.nodes()
             self.C2nodes = cliqueC2.nodes()
             list_edges_c1 = cliqueC1.edges(data=True)
