@@ -19,7 +19,7 @@ frame = eth_frame/chassis_id/port_id/ttl/system_name/end
 Ether(str(frame))
 
 
-for i in range(8):
+for i in range(2):
     sendp(frame)
     print(frame)
-    time.sleep(5)
+    time.sleep(3)
