@@ -1,2 +1,2 @@
-# Simple_SDN_lab
-First simple SDN lab
+# Scenario2
+A controller who knows the source of a packet but not the destination
