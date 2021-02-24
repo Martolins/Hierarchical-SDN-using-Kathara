@@ -1,0 +1,1 @@
+Path with the highest available bandwidth between two hosts attached to backbone switches
